@@ -13,6 +13,3 @@ when using Gephi - otherwise, double check what was imported.
 Calling/Usage:	
 
 python csv_to_graphML.py infile outfile
- 
- 		helpful to  for gephi import
-   
