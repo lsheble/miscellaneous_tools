@@ -1,4 +1,4 @@
-CSV-to-GraphML-DiGraphs
+CSV-to-GraphML-BiGraphs
 =======================
 
 Simple script to process a csv file to return a graphML file for bimodal / bipartitie graphs.
