@@ -1,0 +1,37 @@
+In the same directory as a bunch of wos plaintext files:
+cat *.txt >> <outfile1>.txt
+sed '/EFFN Thomson Reuters /,/VR 1.0/d' <outfile1>.txt > <outfile2>.txt
+
+The first line concatenates all files that end with .txt and writes them to a new file named CogNeuroSci. 
+The original files remain.
+
+For the second part, we take advantage of a neat thing that happens when we concatenate the files:
+
+The file header:
+FN Thomson Reuters Web of Knowledge™
+VR 1.0 
+
+Is appended immediately after end of file marker 
+EF
+By our concatenation line, 
+thereby producing:
+EFFN Thomson Reuters Web of Knowledge™
+VR 1.0
+In this case, it simplifies removing the beginning and end of file text:
+At the true beginning of concatenated files result, the beginning of file text remains:
+FN Thomson Reuters Web of Knowledge
+VR 1.0
+and also the end of file text remains at true end:
+EF
+while all the inbetween end and beginning of file texts were joined together:
+EFFN Thomson Reuters Web of Knowledge
+VR 1.0
+ 
+Therefore, we can use sed & indicate the beginning and end of the text block we want to remove & 
+don’t have to worry about otherwise treating the first of these at the beginning of the big file & 
+the last at the end of big file differently.
+
+here’s the general form:
+sed "/startOfBlock/,/endOfBlock/d" file.txt > outfile
+And this is an example I used with one of our data sets:
+sed '/EFFN Thomson Reuters /,/VR 1.0/d' CogNeuroSci_raw.txt > CogNeuroSci_raw_clean.txt
