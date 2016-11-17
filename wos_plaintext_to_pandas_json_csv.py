@@ -78,4 +78,4 @@ for recdict in records_list:
 df = pd.DataFrame(records_list)
 
 df.drop(['FN', 'VR'], inplace=True, axis=1)
-df.to_csv(tsvout, index=False, sep = '\t', encoding='utf-8')
+df.to_csv(tsvout, index=False, sep='\t', encoding='utf-8')
