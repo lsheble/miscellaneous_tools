@@ -44,3 +44,13 @@ with open (meshin, 'r') as f:
         else:
             record[key]=value
 print(len(records_list))
+
+'''
+may want to use at some point:
+
+append record to list of records before resetting, getting the next record         
+print(json.dumps(record,sort_keys=True, indent=4 * ' '))
+
+df = pd.DataFrame(records_list)
+df.to_csv(tsvout, index=False, sep='\t', encoding='utf-8')
+'''
