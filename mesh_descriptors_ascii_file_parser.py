@@ -8,8 +8,6 @@ MeSH Descriptor file, 2017 prelim version from:
 ftp://nlmpubs.nlm.nih.gov/online/mesh/MESH_FILES/asciimesh/d2017.bin
 used in initial version
 """
-
-# import sys
 import simplejson as json
 import pandas as pd
 
@@ -33,12 +31,16 @@ tsvout = fp + mesh_tsv
 with open (meshin, 'r') as f:
 #    with open(tsvout, 'w+') as of:
     i = 0
-    for line in f:    
-        if line == "*NEWRECORD":
-            record={}
+    for line in f:   
         rec = line.rstrip().split("=", 1)
+        key = rec[0].strip()
         if len(rec) > 1:
-            record[rec[0].strip()]=rec[1].strip()
-        if len(line.strip()) == 0:
-            records_list.append(record) 
-    print(len(records_list))
+            value = rec[1].strip()
+        if key == "*NEWRECORD":
+            continue
+        elif key == "":
+            records_list.append(record)
+            record = {}
+        else:
+            record[key]=value
+print(len(records_list))
