@@ -31,7 +31,7 @@ tsvout = fp + wos_tsv
 with open (wosin, 'r') as f:
     with open(tsvout, 'w+') as of:
         for line in f:
-            line = line.lstrip('\ufeff')
+            line = line.replace('\ufeff','')
     #        print line    
             if len(line.strip()) == 0:
                 continue  
