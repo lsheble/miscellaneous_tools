@@ -16,7 +16,7 @@ import os
 
 
 # dir_name = sys.argv[1]
-# out_subfolder_name = sys.argv[2] # name of subdirectory for outfiles (e.g., 'af_files_plaintext'), hard coaded here, dir structure not great
+# out_subfolder_name = sys.argv[2] # name of subdirectory for outfiles (e.g., 'af_files_plaintext'), hard coded here, dir structure not great
 
 dir_name = '<path_to_in_files_w_in_subfolder>'
 
